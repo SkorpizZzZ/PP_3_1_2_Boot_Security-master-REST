@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+<h2>User profile</h2>
+<div>
+    <br/>
+    <table border="1">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+        </tr>
+        <tr th:object="${user}">
+            <td th:utext="${user.firstName}">...</td>
+            <td th:utext="${user.lastName}">...</td>
+            <td th:utext="${user.email}">...</td>
+        </tr>
+    </table>
+</div>
+<br>
+<div>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Exit">
+    </form>
+</div>
+
+</body>
+</html>

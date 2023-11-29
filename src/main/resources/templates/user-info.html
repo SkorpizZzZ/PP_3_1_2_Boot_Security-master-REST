@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User info</title>
+</head>
+<body>
+<h2>User info</h2>
+<br>
+<form th:method="POST" th:action="@{/}" th:object="${user}">
+    <input type="hidden" name="_method" value="PATCH">
+    <input type="hidden" th:name="id" th:value="*{id}">
+    <label for="username">Enter username: </label>
+    <input type="text" th:field="*{username}" id="username"/>
+    <br><br>
+    <label for="password">Enter password: </label>
+    <input type="text" th:field="*{password}" id="password"/>
+    <br><br>
+    <label for="firstName">Enter first name: </label>
+    <input type="text" th:field="*{firstName}" id="firstName"/>
+    <br><br>
+    <label for="lastName">Enter last name:</label>
+    <input type="text" th:field="*{lastName}" id="lastName">
+    <br><br>
+    <label for="email">Enter email:</label>
+    <input type="text" th:field="*{email}" id="email">
+    <br/><br>
+    <p>
+        <label>Roles:
+            <input type="checkbox" name="roles"
+                   th:each="role : ${allRoles}"
+                   th:text="${role.name}"
+                   th:value="${role.id}"
+                   th:field="*{roles}"
+            />
+        </label>
+    </p>
+    <input type="submit" value="OK">
+</form>
+</body>
+</html>
