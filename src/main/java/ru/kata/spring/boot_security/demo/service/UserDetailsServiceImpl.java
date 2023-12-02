@@ -1,5 +1,6 @@
 package ru.kata.spring.boot_security.demo.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -22,7 +23,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional <User> user = Optional.ofNullable(userDao.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Пользователь не найден.")));
-        return user.get();
+        return userDao.findByUsername(username).orElseThrow(()-> new UsernameNotFoundException("Пользователь не найден."));
     }
 }

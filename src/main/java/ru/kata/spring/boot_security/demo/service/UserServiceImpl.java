@@ -47,8 +47,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public  User findByUsername(String username) {
-        Optional <User> user = Optional.ofNullable(userDao.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Пользователь не найден.")));
-        return user.get();
+        return userDao.findByUsername(username).orElseThrow(()-> new UsernameNotFoundException("Пользователь не найден."));
     }
 
 }
