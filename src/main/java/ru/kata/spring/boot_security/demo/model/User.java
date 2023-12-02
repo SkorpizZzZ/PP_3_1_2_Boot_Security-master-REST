@@ -47,6 +47,12 @@ public class User implements UserDetails {
 
     }
 
+    public User(String username, String password, Set<Role> roles) {
+        this.username = username;
+        this.password = password;
+        this.roles = roles;
+    }
+
     @Override
     public String toString() {
         return "User{" +
