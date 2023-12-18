@@ -10,4 +10,6 @@ public interface UserDao extends JpaRepository<User, Long> {
 
     @Query("Select u from User u left join fetch u.roles where u.username=:username")
     Optional<User> findByUsername(String username);
+    @Query("Select u from User u left join fetch u.roles where u.id=:id")
+    Optional<User> findById(Long id);
 }

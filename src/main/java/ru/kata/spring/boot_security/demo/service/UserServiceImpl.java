@@ -52,4 +52,9 @@ public class UserServiceImpl implements UserService {
         return userDao.findByUsername(username).orElseThrow(()-> new UsernameNotFoundException("Пользователь не найден."));
     }
 
+    @Override
+    public User findById(Long id) {
+        return userDao.findById(id).orElseThrow(()-> new UsernameNotFoundException("Пользователь не найден."));
+    }
+
 }

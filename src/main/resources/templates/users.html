@@ -71,6 +71,7 @@
                     <thead>
                     <tr>
                         <th scope="col">ID</th>
+                        <th scope="col">Username</th>
                         <th scope="col">First Name</th>
                         <th scope="col">Last Name</th>
                         <th scope="col">Email</th>
@@ -82,6 +83,7 @@
                     <tbody class="table-group-divider">
                     <tr th:each="u : ${users}">
                         <th scope="row" th:text="${u.id}">...</th>
+                        <td th:text="${u.username}">...</td>
                         <td th:text="${u.firstName}">...</td>
                         <td th:text="${u.lastName}">...</td>
                         <td th:text="${u.email}">...</td>
@@ -134,19 +136,19 @@
                                                                 name</label>
                                                             <input type="text" class="form-control" id="firstNameEdit"
                                                                    th:value="*{firstName}"
-                                                                   th:name="firstname">
+                                                                   th:name="firstName">
                                                         </div>
                                                         <div>
                                                             <label for="lastNameEdit" class="form-label">Last
                                                                 name</label>
                                                             <input type="text" class="form-control" id="lastNameEdit"
-                                                                   th:field="*{lastName}"
-                                                                   th:name="lastname">
+                                                                   th:value="*{lastName}"
+                                                                   th:name="lastName">
                                                         </div>
                                                         <div>
                                                             <label for="emailEdit" class="form-label">Email</label>
                                                             <input type="text" class="form-control" id="emailEdit"
-                                                                   th:field="*{email}"
+                                                                   th:value="*{email}"
                                                                    th:name="email">
                                                         </div>
                                                         <div>
@@ -154,7 +156,7 @@
                                                                    class="form-label">Password</label>
                                                             <input type="password" class="form-control"
                                                                    id="passwordEdit"
-                                                                   th:field="*{password}"
+                                                                   th:value="*{password}"
                                                                    th:name="password">
                                                         </div>
                                                         <div>
@@ -188,10 +190,10 @@
                             </div>
                         </td>
 
-<!--                        Кнопка вызова модального окна удаления пользователя-->
+                        <!--                        Кнопка вызова модального окна удаления пользователя-->
                         <td>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    th:data-bs-target="${'#deleteModal'+user.getId()}"
+                                    th:data-bs-target="${'#deleteModal'+u.getId()}"
                                     th:data-row="${user}">Delete
                             </button>
                         </td>
@@ -253,4 +255,3 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
-
