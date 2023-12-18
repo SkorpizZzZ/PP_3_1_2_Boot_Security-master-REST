@@ -28,12 +28,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public User save(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         return userDao.save(user);
     }
 
     @Override
+    @Transactional
     public void delete(User user) {
         userDao.delete(findByUsername(user.getUsername()));
     }
