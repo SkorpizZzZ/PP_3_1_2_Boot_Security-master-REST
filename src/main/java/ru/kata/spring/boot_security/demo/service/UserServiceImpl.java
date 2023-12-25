@@ -8,7 +8,6 @@ import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.repository.UserDao;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -31,7 +30,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public User save(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        return userDao.save(user);
+        return userDao.saveAndFlush(user);
     }
 
     @Override
@@ -44,6 +43,20 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void truncateTable() {
         userDao.deleteAll();
+    }
+
+    @Override
+    public User updateUser(User user, Long id) {
+        User updatedUser = findById(id);
+        updatedUser.setEmail(user.getEmail());
+        if (!updatedUser.getUsername().equals(user.getUsername())) {
+            updatedUser.setUsername(user.getUsername());
+        }
+        updatedUser.setFirstName(user.getFirstName());
+        updatedUser.setLastName(user.getLastName());
+        updatedUser.setPassword(user.getPassword());
+        updatedUser.setRoles(user.getRoles());
+        return userDao.saveAndFlush(updatedUser);
     }
 
 

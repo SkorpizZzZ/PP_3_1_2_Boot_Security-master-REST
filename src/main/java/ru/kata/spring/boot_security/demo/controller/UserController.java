@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.repository.RoleDao;
 import ru.kata.spring.boot_security.demo.service.UserService;
@@ -48,44 +46,27 @@ public class UserController {
     public String adminPage(ModelMap model, @AuthenticationPrincipal User user) {
         model.addAttribute("users", userService.findAll());
         model.addAttribute("user", user);
-//        model.addAttribute("newUser", new User());
+        model.addAttribute("newUser", new User());
         model.addAttribute("allRoles", roleDao.findAll());
         return "users";
     }
 
-
-    @GetMapping(value = "/new")
-    public String newUser(ModelMap model) {
-        model.addAttribute("user", new User());
-        model.addAttribute("allRoles", roleDao.findAll());
-        return "redirect:/admin";
-    }
-
-    @PostMapping(value = "/new")
+    @PostMapping(value = "/admin/new")
     public String saveUser(@ModelAttribute("user") User user) {
         userService.save(user);
         return "redirect:/admin";
     }
 
-    @GetMapping(value = "/admin/edit")
-    public String editUser(ModelMap model, @RequestParam(name = "username") String username) {
-        model.addAttribute("user", userService.findByUsername(username));
-        model.addAttribute("allRoles", roleDao.findAll());
+
+    @PatchMapping(value = "/admin/edit/{id}")
+    public String update(@ModelAttribute("user") User user, @PathVariable("id") Long id) {
+        userService.updateUser(user, id);
         return "redirect:/admin";
     }
 
-    @PatchMapping(value = "/admin/edit")
-    public String update(@ModelAttribute("user") User user, @RequestParam(name = "username") String username) {
-        User editUser = userService.findByUsername(username);
-        userService.save(editUser);
+    @DeleteMapping(value = "admin/delete/{id}")
+    public String deleteUserById(@PathVariable("id") Long id) {
+        userService.delete(userService.findById(id));
         return "redirect:/admin";
     }
-
-    @DeleteMapping(value = "/delete")
-    public String deleteUserById(@RequestParam(name = "username") String username) {
-        userService.delete(userService.findByUsername(username));
-        return "redirect:/admin";
-    }
-
-
 }

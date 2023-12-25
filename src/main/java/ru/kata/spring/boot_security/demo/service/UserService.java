@@ -16,4 +16,6 @@ public interface UserService {
     void delete(User user);
 
     void truncateTable();
+
+    User updateUser(User user, Long id);
 }
