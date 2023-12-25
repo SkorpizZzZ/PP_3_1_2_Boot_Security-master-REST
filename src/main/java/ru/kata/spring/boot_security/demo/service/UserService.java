@@ -17,5 +17,5 @@ public interface UserService {
 
     void truncateTable();
 
-    User updateUser(User user, Long id);
+    User updateUser(User user);
 }

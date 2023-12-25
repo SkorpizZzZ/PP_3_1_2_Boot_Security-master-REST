@@ -46,28 +46,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateUser(User user, Long id) {
-        User updatedUser = findById(id);
-        updatedUser.setEmail(user.getEmail());
-        if (!updatedUser.getUsername().equals(user.getUsername())) {
-            updatedUser.setUsername(user.getUsername());
-        }
-        updatedUser.setFirstName(user.getFirstName());
-        updatedUser.setLastName(user.getLastName());
-        updatedUser.setPassword(user.getPassword());
-        updatedUser.setRoles(user.getRoles());
-        return userDao.saveAndFlush(updatedUser);
+    public User updateUser(User user) {
+        return userDao.saveAndFlush(user);
     }
 
 
     @Override
-    public  User findByUsername(String username) {
-        return userDao.findByUsername(username).orElseThrow(()-> new UsernameNotFoundException("Пользователь не найден."));
+    public User findByUsername(String username) {
+        return userDao.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Пользователь не найден."));
     }
 
     @Override
     public User findById(Long id) {
-        return userDao.findById(id).orElseThrow(()-> new UsernameNotFoundException("Пользователь не найден."));
+        return userDao.findById(id).orElseThrow(() -> new UsernameNotFoundException("Пользователь не найден."));
     }
 
 }
