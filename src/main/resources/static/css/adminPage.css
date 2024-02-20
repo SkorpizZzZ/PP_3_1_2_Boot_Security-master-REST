@@ -1,0 +1,192 @@
+body {
+    font-family: -apple-system, sans-serif;
+    line-height: 1.4em;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: 0;
+}
+
+.wrapper {
+    width: auto;
+}
+
+nav ul {
+    color: rgba(255, 255, 255, 0.55);
+    background-color: rgba(1, 5, 19, 0.84);
+    font-size: 130%;
+    margin: 0;
+    padding: 20px 0 20px 10px;
+}
+
+nav li {
+    display: inline;
+}
+
+.on {
+    color: aliceblue;
+    font-weight: bold;
+}
+
+nav a.logout {
+    font-size: 110%;
+    color: rgba(255, 255, 255, 0.55);
+    float: right;
+    margin-right: 10px;
+}
+
+div.mainPanel {
+    background-color: rgba(228, 204, 225, 0.94);
+}
+
+div.switchPanel {
+    float: left;
+    margin-top: 1%;
+    margin-right: 0.5%;
+    margin-left: 0;
+    width: 12%;
+    background-color: rgb(248, 249, 250);
+}
+
+div.switchPanel button {
+    width: 90%;
+    background-color: #0d6efd;
+    font-size: 18px;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    margin-left: -10%;
+}
+
+#userBtn {
+    background-color: rgb(248, 249, 250);
+    color: #0d6efd;
+}
+
+#addUserBtn {
+    background-color: rgb(233, 236, 239);
+    color: #0d6efd;
+    border: none;
+}
+
+div.switchPanel ul {
+    list-style: none;
+}
+
+div.adminPanel {
+    margin-top: 1%;
+    padding: 1% 0 1% 2%;
+    float: left;
+    width: 85%;
+    background-color: rgb(233, 236, 239);
+}
+
+div.currentUser {
+    margin-top: 1%;
+    padding: 1% 0 1% 2%;
+    float: left;
+    width: 85%;
+    background-color: rgb(233, 236, 239);
+    display: none;
+}
+
+
+
+div.adminPanel button {
+    background-color: white;
+    width: auto;
+    height: auto;
+    font-size: 14px;
+    color: black;
+    padding: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.175);
+}
+
+div.info {
+    width: 98%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.175);
+    border-radius: 8px;
+}
+
+h3 {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: rgba(0, 0, 0, 0.175);
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    margin: 0;
+    padding: 10px;
+    background-color: rgb(248, 249, 250);
+}
+
+.table {
+    padding: 1% 1% 4% 1%;
+    background-color: white;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+
+table {
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    text-align: center;
+}
+
+th {
+    padding-top: 2%;
+    border-bottom: 2px solid black;
+}
+
+tr td {
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.175);
+    line-height: 4em;
+}
+
+tr td:first-child {
+    font-weight: bold;
+}
+
+#table button {
+    border-radius: 8px;
+    color: white;
+}
+
+.editButton {
+    border-radius: 8px;
+    background-color: #0dcaf0 !important;
+    border-width: 0 !important;
+    padding: 13px !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+.deleteButton {
+    border-radius: 8px;
+    background-color: #dc3545 !important;
+    border-width: 0 !important;
+    padding: 13px !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+#addUser {
+    display: none;
+}

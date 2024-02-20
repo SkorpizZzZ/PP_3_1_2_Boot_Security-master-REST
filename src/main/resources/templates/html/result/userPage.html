@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/css/userPage.css" type="text/css" rel="stylesheet"/>
+    <script src="/js/userPage.js" async></script>
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/adminJs" class="on">admin</a></li>
+                <li>with roles: Admin</li>
+                <li><a href="/logout" class="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="mainPanel">
+        <div class="switchPanel">
+            <ul>
+                <li>
+                    <button id="userBtn">
+                        User
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <div class="currentUser" id="currentUser">
+                <h1>User information-page</h1>
+                <div>
+                    <div class="info">
+                        <h3>About user</h3>
+                        <div id="currentUserTable" class="table">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Username</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/css/adminPage.css" type="text/css" rel="stylesheet"/>
+    <link href="/css/modalWindow.css" type="text/css" rel="stylesheet"/>
+    <script src="/js/adminPage.js" async></script>
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/adminJs" class="on">admin</a></li>
+                <li>with roles: Admin</li>
+                <li><a href="/logout" class="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="mainPanel">
+        <div class="switchPanel">
+            <ul>
+                <li>
+                    <button id="adminBtn">
+                        Admin
+                    </button>
+                </li>
+                <li>
+                    <button id="userBtn">
+                        User
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <div class="currentUser" id="currentUser">
+                <h1>User information-page</h1>
+                <div>
+                    <div class="info">
+                        <h3>About user</h3>
+                        <div id="currentUserTable" class="table">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Username</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="adminPanel" id="adminPanel">
+                <h1>Admin panel</h1>
+                <nav>
+                    <div>
+                        <button id="infoBtn">User table</button>
+                        <button id="addUserBtn">New user</button>
+                    </div>
+                </nav>
+                <div class="switchTable">
+                    <div class="info" id="info">
+                        <h3>All users</h3>
+                        <div id="table" class="table">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Username</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="addUser info" id="addUser">
+                        <div><h3>Add new user</h3></div>
+                        <div>
+                            <form id="addForm">
+                                <div>
+                                    <label for="usernameAdd">Username</label>
+                                    <input type="text"
+                                           id="usernameAdd"
+                                           name="username">
+                                </div>
+                                <div>
+                                    <label for="firstNameAdd">First name</label>
+                                    <input type="text"
+                                           id="firstNameAdd"
+                                           name="firstName">
+                                </div>
+                                <div>
+                                    <label for="lastNameAdd">Last name</label>
+                                    <input type="text"
+                                           id="lastNameAdd"
+                                           name="lastName">
+                                </div>
+                                <div>
+                                    <label for="emailAdd">Email</label>
+                                    <input type="text"
+                                           id="emailAdd"
+                                           name="email">
+                                </div>
+                                <div>
+                                    <label for="passwordAdd">Password</label>
+                                    <input type="password"
+                                           id="passwordAdd"
+                                           name="password">
+                                </div>
+                                <div>
+                                    <label for="roleAdd">Role</label>
+                                    <select multiple="multiple"
+                                            size="2"
+                                            id="roleAdd"
+                                            name="roles">
+                                        <option value="1">ADMIN</option>
+                                        <option value="2">USER</option>
+                                    </select>
+                                </div>
+                                <input class="addBtn"
+                                       type="submit"
+                                       value="Add"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Модальное окно-->
+<div class="modalBackground">
+    <div class="modalActive">
+        <div class="modal-header">
+            <h3>Edit user</h3>
+            <div class="modalClose">
+            </div>
+        </div>
+        <div class="modalWindow">
+            <form id="editForm">
+                <div>
+                    <label for="idEdit">ID</label>
+                    <input type="text"
+                           id="idEdit"
+                           name="id" disabled>
+                </div>
+                <div>
+                    <label for="usernameEdit">Username</label>
+                    <input type="text"
+                           id="usernameEdit"
+                           name="username">
+                </div>
+                <div>
+                    <label for="firstNameEdit">First name</label>
+                    <input type="text"
+                           id="firstNameEdit"
+                           name="firstName">
+                </div>
+                <div>
+                    <label for="lastNameEdit">Last name</label>
+                    <input type="text"
+                           id="lastNameEdit"
+                           name="lastName">
+                </div>
+                <div>
+                    <label for="emailEdit">Email</label>
+                    <input type="text"
+                           id="emailEdit"
+                           name="email">
+                </div>
+                <div>
+                    <label for="passwordEdit">Password</label>
+                    <input type="password"
+                           id="passwordEdit"
+                           name="password">
+                </div>
+                <div>
+                    <label for="roleEdit">Role</label>
+                    <select multiple="multiple"
+                            size="2"
+                            id="roleEdit"
+                            name="roles">
+                        <option value="1">ADMIN</option>
+                        <option value="2">USER</option>
+                    </select>
+                </div>
+                <input type="submit"
+                       value="Edit"/>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
